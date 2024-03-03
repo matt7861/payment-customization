@@ -1,0 +1,23 @@
+query RunInput {
+  cart {
+    lines {
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          title
+          product {
+            id
+            title
+            metafield(namespace: "custom", key: "hide_payment") {
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+  paymentMethods {
+    id
+    name
+  }
+}
